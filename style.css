@@ -1466,23 +1466,28 @@ nav {
 }
 
 /* ========== RESPONSIVE ========== */
+
+/* ---- Tablet / Small Desktop (≤ 900px) ---- */
 @media (max-width: 900px) {
   .hero-section {
     flex-direction: column;
     text-align: center;
-    padding-top: 100px;
+    padding: 110px 20px 70px;
+    gap: 36px;
+    min-height: auto;
   }
 
   .hero-content {
     align-items: center;
+    order: 2;
+  }
+
+  .hero-visual {
+    order: 1;
   }
 
   .hero-desc {
     max-width: 100%;
-  }
-
-  .hero-visual {
-    order: -1;
   }
 
   .profile-wrapper {
@@ -1525,21 +1530,30 @@ nav {
   .activities-grid {
     grid-template-columns: 1fr;
   }
+
+  .proficiency-section {
+    padding: 28px 24px;
+  }
 }
 
+/* ---- Mobile / Hamburger Menu (≤ 768px) ---- */
 @media (max-width: 768px) {
+
+  /* --- Navbar --- */
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 64px;
     left: 0;
     right: 0;
     background: rgba(10, 10, 15, 0.97);
     backdrop-filter: blur(20px);
-    padding: 20px 24px 28px;
+    -webkit-backdrop-filter: blur(20px);
+    padding: 16px 20px 24px;
     border-bottom: 1px solid var(--border);
-    gap: 4px;
+    gap: 2px;
+    z-index: 9998;
   }
 
   .nav-links.open {
@@ -1547,8 +1561,10 @@ nav {
   }
 
   .nav-item {
-    padding: 10px 14px;
+    padding: 12px 14px;
     width: 100%;
+    border-radius: 10px;
+    font-size: 0.95rem;
   }
 
   .btn-hire {
@@ -1559,47 +1575,299 @@ nav {
     display: flex;
   }
 
+  /* --- Sections --- */
   .section {
-    padding: 70px 0;
+    padding: 64px 0;
   }
 
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  /* --- Hero --- */
+  .hero-section {
+    padding: 100px 16px 60px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-socials {
+    justify-content: center;
+  }
+
+  /* --- About stats --- */
+  .about-stats {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .stat-item {
+    padding: 16px 20px;
+    min-width: 90px;
+  }
+
+  /* --- Timeline --- */
   .timeline::before {
-    left: 16px;
+    left: 15px;
+  }
+
+  .timeline-item {
+    gap: 18px;
   }
 
   .timeline-marker {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+  }
+
+  .timeline-card {
+    padding: 20px;
   }
 
   .timeline-header {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 
   .timeline-meta {
     align-items: flex-start;
+    flex-direction: row;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* --- Education --- */
+  .edu-card {
+    padding: 18px;
+    gap: 14px;
   }
 
   .edu-header {
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .edu-date {
+    white-space: normal;
+  }
+
+  /* --- Contact form --- */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Footer --- */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .footer-socials {
+    justify-content: center;
   }
 }
 
+/* ---- Small Mobile (≤ 480px) ---- */
 @media (max-width: 480px) {
-  .hero-name {
-    font-size: 2rem;
+
+  /* --- Container --- */
+  .container {
+    padding: 0 16px;
   }
 
-  .about-stats {
+  /* --- Hero --- */
+  .hero-section {
+    padding: 90px 14px 50px;
+    gap: 28px;
+  }
+
+  .hero-name {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    letter-spacing: -1px;
+  }
+
+  .typewriter-wrapper {
+    font-size: 1rem;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .footer-content {
+  .hero-desc {
+    font-size: 0.92rem;
+  }
+
+  .hero-buttons {
     flex-direction: column;
-    text-align: center;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 24px;
+  }
+
+  /* Hide floating badges on very small screens to prevent overflow */
+  .profile-badge {
+    display: none;
+  }
+
+  .profile-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-img {
+    width: 170px;
+    height: 170px;
+    margin: 15px;
+  }
+
+  /* --- Sections --- */
+  .section {
+    padding: 52px 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  /* --- About --- */
+  .about-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .stat-item {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 80px;
+    padding: 14px 12px;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  /* Detail cards */
+  .detail-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  /* --- Skills --- */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proficiency-section {
+    padding: 22px 16px;
+  }
+
+  /* --- Timeline --- */
+  .timeline-item {
+    gap: 14px;
+  }
+
+  .timeline-card {
+    padding: 16px;
+  }
+
+  .timeline-role {
+    font-size: 1rem;
+  }
+
+  /* --- Projects --- */
+  .project-card {
+    padding: 20px;
+  }
+
+  .project-badge {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+  }
+
+  /* --- Education --- */
+  .edu-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .edu-icon {
+    font-size: 1.6rem;
+  }
+
+  /* --- Contact --- */
+  .contact-link-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .clc-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  /* --- Footer --- */
+  .footer-content {
+    gap: 8px;
+  }
+
+  .footer-socials {
+    gap: 12px;
+  }
+
+  /* --- Scroll indicator --- */
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ---- Very Small Phones (≤ 360px) ---- */
+@media (max-width: 360px) {
+  nav {
+    padding: 0 14px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .hero-name {
+    font-size: 1.7rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .stat-item {
+    flex: 1 1 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 0.88rem;
+    padding: 12px 20px;
+  }
+
+  .profile-wrapper {
+    width: 170px;
+    height: 170px;
+  }
+
+  .profile-img {
+    width: 145px;
+    height: 145px;
+    margin: 12px;
   }
 }
 
